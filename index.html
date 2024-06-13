@@ -1,39 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Team Interface</title>
-</head>
-<body>
-  <h1>Submit Request for Approval Liptis USA</h1>
-  <form id="approval-form">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" required><br><br>
-    <label for="request">Request:</label>
-    <textarea id="request" name="request" required></textarea><br><br>
-    <button type="submit">Submit</button>
-  </form>
-
-  <script>
-    const form = document.getElementById('approval-form');
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const data = Object.fromEntries(formData);
-      try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbw2zPGM53c-2aUt-u3ttxOwPGAxn6WfJI3C3pF-QoI3hPJNpW-hnO6RHkDAIW2UVssL3g/exec', {
-          method: 'POST',
-          body: JSON.stringify(data),
-          headers: { 'Content-Type': 'application/json' },
-        });
-        const result = await response.json();
-        alert(result.message);
-      } catch (error) {
-        console.error('Error:', error);
-        alert('There was an error submitting your request.');
-      }
-    });
-  </script>
-</body>
-</html>
+<form 
+  method="POST" 
+  action="YOUR_WEBAPP_URL"
+>
+  <input name="Email" type="email" placeholder="Email" required>
+  <input name="Name" type="text" placeholder="Name" required>
+  <button type="submit">Send</button>
+</form>
